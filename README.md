@@ -13,3 +13,14 @@ The idea is to assign to each flat for sale a renting value, which it can genera
 
 ## References
 [1] Zietz et al.(2008), Determinants of House Prices: A Quantile Regression Approach. J Real Estate Finance Econ 37
+
+# Jan's comments
+ - selected Nove Mesto as test dataset
+ - adjusted scraping of coordinates for OpenStreetMaps
+ - easy histograms and scatters
+
+# Tasks
+ - create separate notebooks for downloader and EDA
+ - regression - OLS, quantile, simple equation (possible use of large dummy matrix) [1]
+ - how to parse locations?
+ - 
