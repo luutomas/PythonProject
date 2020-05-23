@@ -17,10 +17,14 @@ The idea is to assign to each flat for sale a renting value, which it can genera
 # Jan's comments
  - selected Nove Mesto as test dataset
  - adjusted scraping of coordinates for OpenStreetMaps
- - easy histograms and scatters
+ - basic histograms and scatters
 
-# Tasks
+# Tasks and Thoughts
  - create separate notebooks for downloader and EDA
  - regression - OLS, quantile, simple equation (possible use of large dummy matrix) [1]
- - how to parse locations?
- - 
+ - variable => distance from center
+ - geospatial clusterring => regression within each cluster
+ - treating the categorical variables => dummy? ordered? 
+ - Rethink the process of scraping => get the DF of one link, and then append immediately to the old dataframe created. 
+ - Check whether the link was already scraped if not, proceed to scraping.
+ - Think about the incremental scraping with timestamps
