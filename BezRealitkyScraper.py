@@ -188,13 +188,6 @@ class Downloader:
         r = requests.get(self.link)
         r.encoding = 'UTF-8'
         return BeautifulSoup(r.text, 'lxml')
-    
-#     def getPagesSoup(self):
-#         for page in self.pages:
-#             r = requests.get(page)
-#             r.encoding = 'UTF-8'
-#             return BeautifulSoup(r.text, 'lxml')
-
         
     def getPages(self):
         '''
@@ -227,27 +220,7 @@ class Downloader:
                 else: 
                     links_list.append(base_url + equity.find('a')['href'])
         return links_list
-    
-#     def downloadFlats(self,pause=0.5):
-#         '''
-#         Download all links stored in self.links and store it in self.flats
-#         pause -- how long to pause between requests? (in seconds)
-#         tqdm -- the progress bar showing a progress of iterator
-#         '''
-#         count = len(self.links)
-#         print('Downloading all {} flats ...'.format(count))
 
-#         for link in self.links:
-#             flat = Flat(link)
-#             self.flats.append(flat.df)
-#             time.sleep(pause)
-            
-#     def saveDf(self):
-#         data = {}
-#         data = pd.DataFrame([x.df for x in self.flats])
-#         self.df = data
-            
-            
     def Scraper(self):
         '''
         Scraping information for each flat link
@@ -268,6 +241,3 @@ class Downloader:
                 self.failed_links.append(link)
                 # print(error)
         return database
-
-        #saving final database as attribute
-#         self.database = database
