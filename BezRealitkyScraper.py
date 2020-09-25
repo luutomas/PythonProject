@@ -6,9 +6,9 @@ import tqdm as tqdm
 from lxml import html
 import time
 
-class Estate:
+class WebpageScraped:
     '''
-    Defined as parent class for all possible version of bezrealitky pages
+    Defined as parent class for all possible version of scraped bezrealitky pages
     Containing general methods used in scraping these websites
     '''
     def __init__(self, link):
@@ -24,14 +24,14 @@ class Estate:
         
         return BeautifulSoup(r.text, 'html')   
 
-class Flat(Estate):
+class Flat(WebpageScraped):
     def __init__(self, link):
         '''
-        Constructor for Flat calls parents Estate constructor first,
+        Constructor for Flat calls parents WebpageScraped constructor first,
         where self.link and self.soup are created
         Then flat parameters and coordinates are generated as Flat attributes
         '''
-        # Calling Estate constructor
+        # Calling WebpageScraped constructor
         super().__init__(link)
         
         # getting soup
@@ -81,7 +81,7 @@ class Flat(Estate):
         df = df.T.set_index('Číslo inzerátu:')
         return df    
 
-class Downloader:
+class Downloader(WebpageScraped):
     '''
     Download all links of real estate properties on the given website
     '''
@@ -97,15 +97,7 @@ class Downloader:
         self.df = self.getDataset()
         self.flats = []
         self.failed_links = []
-        
-    def getSoup(self):
-        '''
-        Initialize soup object
-        '''
-        r = requests.get(self.link)
-        r.encoding = 'UTF-8'
-        return BeautifulSoup(r.text, 'lxml')
-        
+
     def getPages(self):
         '''
         Generates a list of all pages for specific search on bezrealitky webpage
