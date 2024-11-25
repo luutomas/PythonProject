@@ -57,7 +57,7 @@ soupsieve==2.0.1
 statsmodels==0.11.1
 terminado==0.8.3
 testpath==0.4.4
-tornado==6.0.4
+tornado==6.4.2
 tqdm==4.46.0
 traitlets==4.3.3
 urllib3==1.25.9
